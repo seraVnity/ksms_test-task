@@ -1,39 +1,64 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import Card from './Card';
+import { StyleSheet, View } from "react-native";
+import Card from "./Card";
 
-export default function App() {
-  const startDate = new Date();
-  
-  const arrayOfDates = [];
-  for (let i = 0; i < 10; i++) {
-    let date = new Date();
-    date.setDate(startDate.getDate() + i)
-    arrayOfDates.push(date);
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const startDate = new Date();
+
+    const arrayOfDates = [];
+    for (let i = 0; i < 10; i++) {
+      let date = new Date();
+      date.setDate(startDate.getDate() + i);
+      arrayOfDates.push(date);
+    }
+    const cards = arrayOfDates.map(d => ({
+      id: d.getDate(),
+      date: d,
+      clicked: false
+    }));
+    this.state = { cards };
   }
 
-  const cards = arrayOfDates.map(d => <Card date = {d} />)
-  
-  return (
-    <View style={styles.container}>
-        {cards}
-    </View>
+  onCardPressed = cardId => {
+    const cards = this.state.cards;
+    cards.forEach(card => {
+      if (card.id === cardId) {
+        card.clicked = true;
+      } else {
+        card.clicked = false;
+      }
+    });
+    this.setState({ cards });
+  };
 
-  );
+  render() {
+    const cards = this.state.cards.map(card => (
+      <Card
+        key={card.id}
+        id={card.id}
+        date={card.date}
+        clicked={card.clicked}
+        onCardPressed={this.onCardPressed}
+      />
+    ));
+    return <View style={styles.container}>{cards}</View>;
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    position: "relative",
-    // backgroundColor: "black",
+    flexWrap: "wrap",
+    paddingTop: 100,
+    paddingBottom: 100,
     alignItems: "center",
     justifyContent: "center",
-    // width: 247,
-    // height: 71
+    height: 71,
+    width: 247
   }
 });
 
-// '#F4F6F8'
-// style={{flex: 1, flexDirection: 'row'}}
