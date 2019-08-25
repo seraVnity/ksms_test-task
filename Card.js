@@ -13,69 +13,47 @@ function Card(props) {
   return (
     <TouchableOpacity
       onPress={() => props.onCardPressed(props.id)}
-      style={clicked ? styles.clickedCard : styles.card}
+      style={clicked ? [styles.card, styles.clickedCard] : styles.card}
     >
-      <Text style={styles.day}>{date.getWeekDay()}</Text>
-      <Text style={styles.number}>{date.getDate()}</Text>
+      <Text style={[styles.date, styles.day]}>{date.getWeekDay()}</Text>
+      <Text style={[styles.date, styles.number]}>{date.getDate()}</Text>
     </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({
   card: {
-    display: "flex",
     width: 38,
     height: 55,
-    marginLeft: 2,
-    marginRight: 2,
-    marginBottom: 4,
+    marginHorizontal: 3,
+    marginVertical: 8,
     boxSizing: "border-box",
     borderWidth: 1,
     borderStyle: "solid",
     borderColor: "#E1E4EA",
     borderRadius: 6,
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   clickedCard: {
-    display: "flex",
-    width: 38,
-    height: 55,
-    marginLeft: 2,
-    marginRight: 2,
     backgroundColor: "#F3E8F6",
-    boxSizing: "border-box",
-    borderWidth: 1,
-    borderStyle: "solid",
     borderColor: "#D3B2D6",
-    borderRadius: 6,
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center"
+  },
+  date: {
+    textAlign: "center",
+    fontFamily: "SF Pro Text",
+    // display: "flex",
+    // alignItems: "center",
+    // flexDirection: "column",
+    // justifyContent: "center",
+    fontFeatureSettings: "tnum",
   },
   day: {
-    // height: 15,
-    textAlign: "center",
-    fontFamily: "SF Pro Text",
     fontSize: 12,
     lineHeight: 16,
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center"
-    // textAlign: 'center',
   },
   number: {
-    // height: 15,
-    textAlign: "center",
-    fontFamily: "SF Pro Text",
     fontSize: 15,
     lineHeight: 20,
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center",
-    letterSpacing: -0.016
+    letterSpacing: -0.016,
   }
 });
 

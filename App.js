@@ -1,19 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Card from "./Card";
+import { generateDates } from "./util";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     const startDate = new Date();
-
-    const arrayOfDates = [];
-    for (let i = 0; i < 10; i++) {
-      let date = new Date();
-      date.setDate(startDate.getDate() + i);
-      arrayOfDates.push(date);
-    }
+    const arrayOfDates = generateDates(startDate, 10);
     const cards = arrayOfDates.map(d => ({
       id: d.getDate(),
       date: d,
@@ -50,15 +44,15 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display:'flex',
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingTop: 100,
-    paddingBottom: 100,
+    marginVertical: 100,
+    marginLeft: 70,
     alignItems: "center",
     justifyContent: "center",
-    height: 71,
-    width: 247
+    backgroundColor: "#F4F6F8",
+    width: 247,
+    height: 142,
   }
 });
-
