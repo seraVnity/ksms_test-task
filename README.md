@@ -1,7 +1,7 @@
 # ksms_test-task
 10 Days Calendar Starting from Today.
 
-This is 10 days calendar starting from the date of today.
+This is a 10 days calendar starting from the date of today.
 
 It includes the date of the current month and the day.
 
