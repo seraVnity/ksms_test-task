@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "#E1E4EA",
     borderRadius: 6,
+    backgroundColor: "#fff",
     justifyContent: "center",
   },
   clickedCard: {
