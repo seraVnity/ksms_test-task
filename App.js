@@ -38,7 +38,11 @@ export default class App extends React.Component {
         onCardPressed={this.onCardPressed}
       />
     ));
-    return <View style={styles.screen}><View style={styles.container}>{cards}</View></View>;
+    return (
+      <View style={styles.screen}>
+        <View style={styles.container}>{cards}</View>
+      </View>
+    );
   }
 }
 
@@ -47,17 +51,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-
+    justifyContent: "center"
   },
   container: {
-    display:"flex",
+    display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#F4F6F8",
     width: 247,
-    height: 142,
+    height: 142
   }
 });

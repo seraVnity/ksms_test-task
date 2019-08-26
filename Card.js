@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
     borderColor: "#E1E4EA",
     borderRadius: 6,
     backgroundColor: "#fff",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   clickedCard: {
     backgroundColor: "#F3E8F6",
-    borderColor: "#D3B2D6",
+    borderColor: "#D3B2D6"
   },
   date: {
     textAlign: "center",
@@ -45,16 +45,16 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     // flexDirection: "column",
     // justifyContent: "center",
-    fontFeatureSettings: "tnum",
+    fontFeatureSettings: "tnum"
   },
   day: {
     fontSize: 12,
-    lineHeight: 16,
+    lineHeight: 16
   },
   number: {
     fontSize: 15,
     lineHeight: 20,
-    letterSpacing: -0.016,
+    letterSpacing: -0.016
   }
 });
 
